@@ -8,7 +8,7 @@
     --card-border: #e2e8f0;
     --accent: #eab308;
 
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Manrope';
     line-height: 1.5;
     font-weight: 400;
 }
@@ -33,8 +33,9 @@ h1,
 h2,
 h3,
 .display-font {
-    font-family: 'Bebas Neue', cursive;
-    letter-spacing: 0.02em;
+    font-family: 'Manrope';
+    font-weight: 800;
+    letter-spacing: -0.04em;
     line-height: 1.1;
 }
 
