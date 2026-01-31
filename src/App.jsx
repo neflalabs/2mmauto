@@ -58,10 +58,10 @@ const Services = () => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
             {jobs.map((job, idx) => (
-                <div key={idx} className={`p-5 rounded-xl border transition-all hover:scale-[1.02] hover:shadow-xl ${job.accept
-                    ? 'border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800/40'
-                    : 'border-red-100 bg-red-50/50 dark:border-red-900/20 dark:bg-red-900/5 opacity-60'
-                    } hover:bg-slate-50 dark:hover:bg-slate-800/60`}>
+                <div key={idx} className={`p-5 rounded-xl border transition-all hover:scale-[1.02] duration-300 ${job.accept
+                    ? 'border-white/50 bg-white/60 dark:border-slate-700 dark:bg-slate-800/40 shadow-lg shadow-slate-200/50 dark:shadow-none'
+                    : 'border-red-100 bg-red-50/50 dark:border-red-900/20 dark:bg-red-900/5 opacity-70'
+                    } backdrop-blur-md hover:bg-white/80 dark:hover:bg-slate-800/60`}>
                     <div className="flex justify-between items-start mb-3">
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">{job.name}</h3>
                         {job.accept ?
@@ -112,8 +112,8 @@ const App = () => {
     return (
         <div className={`min-h-screen relative overflow-hidden flex flex-col transition-colors duration-500 ${theme === 'dark' ? 'dark bg-[#0f172a] text-slate-100' : 'bg-[#f8fafc] text-slate-900'}`}>
             {/* Background decoration */}
-            <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-yellow-500/10 dark:bg-yellow-600/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-yellow-400/20 dark:bg-yellow-600/10 rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-[100px]"></div>
             <div className="grain opacity-30 dark:opacity-100"></div>
 
             {/* Navbar */}
@@ -127,7 +127,7 @@ const App = () => {
                 <div className="flex items-center gap-6">
                     <button
                         onClick={toggleTheme}
-                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-200/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-300/50 dark:border-slate-700/50 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all cursor-pointer group"
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-md border border-white/50 dark:border-slate-700/50 hover:bg-white/80 dark:hover:bg-slate-700 transition-all cursor-pointer group shadow-sm"
                         title="Switch Theme"
                     >
                         {theme === 'light' ?
@@ -172,15 +172,15 @@ const App = () => {
                                 <h3 className="text-3xl md:text-4xl tracking-tighter uppercase font-black">TESTIMONI JUJUR</h3>
                             </div>
                             <div className="space-y-6">
-                                <div className="bg-white dark:bg-slate-800/30 p-6 rounded-xl border-l-4 border-yellow-500 shadow-xl dark:shadow-none backdrop-blur-sm border border-slate-200 dark:border-transparent">
+                                <div className="bg-white/60 dark:bg-slate-800/30 p-6 rounded-xl border-l-4 border-yellow-500 shadow-lg shadow-slate-200/50 dark:shadow-none backdrop-blur-md border-y border-r border-white/50 dark:border-transparent">
                                     <p className="text-slate-700 dark:text-slate-300 italic text-lg leading-relaxed">"Dateng jam 9 pagi, mekaniknya masih tidur di atas kompresor. Tapi motor gua jadi kenceng sih."</p>
                                     <p className="text-slate-500 text-sm mt-4 font-black uppercase tracking-widest">- Budi, Pengguna Supra</p>
                                 </div>
-                                <div className="bg-white dark:bg-slate-800/30 p-6 rounded-xl border-l-4 border-red-500 shadow-xl dark:shadow-none backdrop-blur-sm border border-slate-200 dark:border-transparent">
+                                <div className="bg-white/60 dark:bg-slate-800/30 p-6 rounded-xl border-l-4 border-red-500 shadow-lg shadow-slate-200/50 dark:shadow-none backdrop-blur-md border-y border-r border-white/50 dark:border-transparent">
                                     <p className="text-slate-700 dark:text-slate-300 italic text-lg leading-relaxed">"Mau benerin rem malah disuruh beli gorengan dulu. Bintang 5 karena gorengannya enak."</p>
                                     <p className="text-slate-500 text-sm mt-4 font-black uppercase tracking-widest">- Siska, Beat User</p>
                                 </div>
-                                <div className="bg-white dark:bg-slate-800/30 p-6 rounded-xl border-l-4 border-blue-500 shadow-xl dark:shadow-none backdrop-blur-sm border border-slate-200 dark:border-transparent">
+                                <div className="bg-white/60 dark:bg-slate-800/30 p-6 rounded-xl border-l-4 border-blue-500 shadow-lg shadow-slate-200/50 dark:shadow-none backdrop-blur-md border-y border-r border-white/50 dark:border-transparent">
                                     <p className="text-slate-700 dark:text-slate-300 italic text-lg leading-relaxed">"Gak sengaja mampir karena ban bocor, malah dikasih kopi doang ban gak dibenerin. Mantap."</p>
                                     <p className="text-slate-500 text-sm mt-4 font-black uppercase tracking-widest">- Joni, NMAX Player</p>
                                 </div>
