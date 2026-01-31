@@ -150,7 +150,7 @@ const App = () => {
             <footer className="relative z-10 bg-slate-900 border-t border-slate-800 py-8 text-center px-6">
                 <div className="max-w-4xl mx-auto">
                     <h3 className="text-3xl text-white mb-2">2MM AUTO</h3>
-                    <p className="text-slate-500 mb-4">Jl. Entah Dimana No. 2 (Patokan: Ada ban bekas ditumpuk)</p>
+                    <p className="text-slate-500 mb-4">Jl. Entah Dimana No. 2 (Patokan: Ada papan oranye tulisan hitam STIHL)</p>
                     <p className="text-xs text-slate-700">
                         &copy; {new Date().getFullYear()} 2MM Auto. Jangan tuntut kami kalau motor lu makin kenceng tapi remnya blong.
                     </p>
