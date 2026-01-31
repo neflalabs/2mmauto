@@ -99,6 +99,10 @@ const App = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
+
     return (
         <div className={`${theme} min-h-screen transition-colors duration-500`}>
             <div className="min-h-screen relative overflow-hidden flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
@@ -116,15 +120,19 @@ const App = () => {
                         <span className="text-2xl font-bold tracking-tighter uppercase">2MM AUTO</span>
                     </div>
                     <div className="flex items-center gap-6">
-                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-300/50 dark:border-slate-700/50">
+                        <button
+                            onClick={toggleTheme}
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-200/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-300/50 dark:border-slate-700/50 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all cursor-pointer group"
+                            title="Switch Theme"
+                        >
                             {theme === 'light' ?
-                                <Sun size={14} className="text-orange-500" /> :
-                                <Moon size={14} className="text-blue-400" />
+                                <Sun size={14} className="text-orange-500 group-hover:rotate-45 transition-transform" /> :
+                                <Moon size={14} className="text-blue-400 group-hover:-rotate-12 transition-transform" />
                             }
                             <span className="text-[10px] font-black uppercase tracking-widest opacity-70">
-                                {theme === 'light' ? 'Day Mode' : 'Night Mode'}
+                                {theme === 'light' ? 'Day' : 'Night'}
                             </span>
-                        </div>
+                        </button>
                         <a href="#lokasi" className="text-slate-500 dark:text-slate-400 hover:text-yellow-600 dark:hover:text-white text-sm font-black uppercase tracking-widest transition">DIMANA?</a>
                     </div>
                 </nav>
@@ -133,10 +141,10 @@ const App = () => {
                     <div className="max-w-6xl mx-auto text-center pt-24 md:pt-32">
                         <StatusBadge />
 
-                        <h1 className="text-7xl md:text-9xl text-slate-900 dark:text-white mt-10 mb-4 leading-[0.85] tracking-tighter">
+                        <h1 className="text-6xl md:text-8xl text-slate-900 dark:text-white mt-10 mb-4 leading-[0.85] tracking-tighter">
                             BENGKEL <span className="text-yellow-500">GABUT</span>
                         </h1>
-                        <h2 className="text-xl md:text-3xl text-slate-500 dark:text-slate-500 mb-12 font-bold uppercase tracking-widest px-4">
+                        <h2 className="text-lg md:text-2xl text-slate-500 dark:text-slate-500 mb-12 font-bold uppercase tracking-widest px-4">
                             KERJA KERAS ITU TIPES, KERJA CERDAS ITU SKIP.
                         </h2>
 
