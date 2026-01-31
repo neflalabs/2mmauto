@@ -84,28 +84,29 @@ const Services = () => {
 // Komponen Form Interaktif - REMOVED
 
 const App = () => {
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState(() => {
+        // Cek localStorage dulu, kalau ada pake itu
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+        // Kalau ga ada, fallback ke logic waktu (default)
+        const hour = new Date().getHours();
+        return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+    });
 
     useEffect(() => {
-        const checkTheme = () => {
-            const hour = new Date().getHours();
-            const isDay = hour >= 6 && hour < 18;
-            const initialTheme = isDay ? 'light' : 'dark';
-            setTheme(initialTheme);
-            document.documentElement.classList.toggle('dark', initialTheme === 'dark');
-        };
-
-        checkTheme();
-        const interval = setInterval(checkTheme, 60000);
-        return () => clearInterval(interval);
-    }, []);
+        // Update DOM element dan localStorage setiap kali theme berubah
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     const toggleTheme = () => {
-        setTheme(prev => {
-            const newTheme = prev === 'light' ? 'dark' : 'light';
-            document.documentElement.classList.toggle('dark', newTheme === 'dark');
-            return newTheme;
-        });
+        setTheme(prev => prev === 'light' ? 'dark' : 'light');
     };
 
     return (
