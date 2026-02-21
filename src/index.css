@@ -1,403 +1,160 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap');
+@theme {
+  --color-racing-red: #ff0033;
+  --color-racing-orange: #ff6b00;
+  --color-racing-yellow: #ffcc00;
+  --color-deep-black: #050505;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  
+  --font-display: "Orbitron", sans-serif;
+  --font-accent: "Bebas Neue", sans-serif;
+  --font-body: "Manrope", sans-serif;
+
+  --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(255, 0, 51, 0.3);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 :root {
-    /* Racing Colors - Light Mode */
-    --bg-main: #f0f0f0;
-    --bg-secondary: #e5e5e5;
+    --bg-main: #f8f9fa;
     --text-main: #0a0a0a;
-    --text-muted: #555555;
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --card-border: rgba(0, 0, 0, 0.1);
-
-    /* Racing Accent Colors */
-    --racing-red: #ff0000;
-    --racing-orange: #ff6b00;
-    --racing-yellow: #ffcc00;
-    --neon-green: #00ff88;
-    --racing-blue: #0066ff;
-
-    /* Gradient */
-    --gradient-racing: linear-gradient(135deg, #ff0000, #ff6b00, #ffcc00);
-    --gradient-stripe: repeating-linear-gradient(-45deg,
-            transparent,
-            transparent 10px,
-            rgba(255, 255, 255, 0.03) 10px,
-            rgba(255, 255, 255, 0.03) 20px);
-
-    font-family: 'Barlow Condensed', sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+    --accent: var(--color-racing-red);
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark {
-    --bg-main: #0a0a0a;
-    --bg-secondary: #151515;
+    --bg-main: #050505;
     --text-main: #ffffff;
-    --text-muted: #888888;
-    --card-bg: rgba(20, 20, 20, 0.9);
-    --card-border: rgba(255, 255, 255, 0.08);
-}
-
-* {
-    box-sizing: border-box;
+    --accent: var(--color-racing-red);
 }
 
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
+    font-family: var(--font-body);
     margin: 0;
-    min-height: 100vh;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
-.display-font {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    line-height: 1.1;
+/* --- Layout Utilities --- */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
-/* Racing Stripes Background */
-.racing-stripes {
+.dark .glass-panel {
+    background: rgba(15, 15, 15, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.premium-card {
+    position: relative;
+    background: var(--bg-main);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .premium-card {
+    background: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.premium-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-racing-red);
+    box-shadow: var(--shadow-glow);
+}
+
+/* --- Typography --- */
+.h-premium {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #ff0033 0%, #ff6b00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Racing Elements --- */
+.checkered-bg {
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%), 
+                      linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.02) 75%), 
+                      linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.02) 75%);
+    background-size: 40px 40px;
+}
+
+.dark .checkered-bg {
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.01) 25%, transparent 25%), 
+                      linear-gradient(-45deg, rgba(255,255,255,0.01) 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.01) 75%), 
+                      linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.01) 75%);
+}
+
+.speed-stripe {
+    height: 4px;
+    background: repeating-linear-gradient(90deg, #ff0033, #ff0033 20px, transparent 20px, transparent 40px);
+}
+
+/* --- Animations --- */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.noise-overlay {
     position: fixed;
     inset: 0;
-    background: var(--gradient-stripe);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
     pointer-events: none;
-    z-index: 1;
-    opacity: 0.5;
+    z-index: 9999;
 }
 
-/* Checkered Flag Pattern */
-.checkered-pattern {
-    background-image:
-        linear-gradient(45deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.03) 75%),
-        linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.03) 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 0, 10px -10px, 0 10px;
+/* --- Components Overrides --- */
+.status-pill {
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
 }
 
-.dark .checkered-pattern {
-    background-image:
-        linear-gradient(45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%),
-        linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%);
+.tachometer-dial {
+    stroke-dasharray: 180;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Glowing Effect */
-.glow-red {
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+::selection {
+    background: var(--color-racing-red);
+    color: white;
 }
 
-.glow-orange {
-    box-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
-}
-
-.text-glow {
-    text-shadow: 0 0 40px rgba(255, 107, 0, 0.5);
-}
-
-/* Racing Underline */
-.racing-underline {
-    position: relative;
-}
-
-.racing-underline::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-racing);
-}
-
-/* Speed Lines Animation */
-@keyframes speedLines {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-}
-
-.speed-line {
-    animation: speedLines 2s linear infinite;
-}
-
-/* Pulse Animation */
-@keyframes pulse-glow {
-
-    0%,
-    100% {
-        opacity: 0.6;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-.pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Rev Animation */
-@keyframes rev {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(-5deg);
-    }
-
-    75% {
-        transform: rotate(5deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-.rev-animation:hover {
-    animation: rev 0.3s ease-in-out;
-}
-
-/* Skewed Container */
-.skewed-container {
-    transform: skewX(-3deg);
-}
-
-.skewed-container>* {
-    transform: skewX(3deg);
-}
-
-/* Carbon Fiber Texture */
-.carbon-fiber {
-    background:
-        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0,
-        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-    background-color: #131313;
-    background-size: 20px 20px;
-}
-
-/* Racing Card */
-.racing-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-}
-
-.racing-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-racing);
-}
-
-/* Status Indicator */
-.status-indicator {
-    position: relative;
-}
-
-.status-indicator::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--neon-green);
-    box-shadow: 0 0 10px var(--neon-green);
-    animation: pulse-glow 1.5s ease-in-out infinite;
-}
-
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: var(--bg-main);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #ff0000, #ff6b00);
-    border-radius: 4px;
+    background: #333;
+    border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #222;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #ff3333, #ff8833);
-}
-
-/* Noise Texture */
-.noise {
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0.5;
-}
-
-.dark .noise {
-    opacity: 0.8;
-}
-
-/* Tachometer */
-.tachometer {
-    width: 120px;
-    height: 60px;
-    border-radius: 60px 60px 0 0;
-    background: conic-gradient(from 180deg, #00ff88, #ffcc00, #ff6b00, #ff0000);
-    position: relative;
-    overflow: hidden;
-}
-
-.tachometer::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 50px;
-    background: var(--bg-main);
-    border-radius: 50px 50px 0 0;
-}
-
-/* Finish Line Border */
-.finish-line {
-    border-image: repeating-linear-gradient(90deg,
-            #000 0,
-            #000 10px,
-            #fff 10px,
-            #fff 20px) 1;
-    border-width: 3px 0;
-    border-style: solid;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    border-radius: 15px;
-    background: linear-gradient(135deg, #1a1a1a, #333);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.theme-toggle.light {
-    background: linear-gradient(135deg, #ffd700, #ff8c00);
-}
-
-.theme-toggle .toggle-indicator {
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #fff;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-toggle.light .toggle-indicator {
-    left: 33px;
-}
-
-/* Racing Button */
-.racing-btn {
-    position: relative;
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #ff0000, #ff6b00);
-    border: none;
-    color: white;
-    font-weight: 700;
-    font-family: 'Orbitron', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.racing-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.racing-btn:hover::before {
-    left: 100%;
-}
-
-.racing-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
-}
-
-/* Pit Lane Divider */
-.pit-lane-divider {
-    height: 2px;
-    background: repeating-linear-gradient(90deg,
-            var(--racing-orange),
-            var(--racing-orange) 20px,
-            transparent 20px,
-            transparent 40px);
-}
-
-/* Selection */
-::selection {
-    background: var(--racing-red);
-    color: white;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .skewed-container {
-        transform: none;
-    }
-
-    .skewed-container>* {
-        transform: none;
-    }
+    background: var(--color-racing-red);
 }
