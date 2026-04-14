@@ -144,7 +144,7 @@ const App = () => {
     }, [theme]);
 
     return (
-        <div className="min-h-screen bg-white dark:bg-[#0A0A0A] selection:bg-racing-red selection:text-white transition-colors duration-500">
+        <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] selection:bg-racing-red selection:text-white transition-colors duration-500">
             {/* Background elements */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-20 dark:opacity-40">
                 <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-racing-red/10 blur-[120px] rounded-full"></div>
