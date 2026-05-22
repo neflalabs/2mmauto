@@ -1,0 +1,198 @@
+{
+  "presets": [
+    {
+      "name": "Honda Astrea Grand / Supra 100",
+      "bore": "50.0",
+      "stroke": "49.5",
+      "val": "2",
+      "stdIn": 21,
+      "stdEx": 19,
+      "stdCr": "8.8"
+    },
+    {
+      "name": "Yamaha Mio Sporty / Smile (115)",
+      "bore": "50.0",
+      "stroke": "57.9",
+      "val": "2",
+      "stdIn": 21,
+      "stdEx": 19,
+      "stdCr": "8.8"
+    },
+    {
+      "name": "Yamaha Mio J / Soul GT 115",
+      "bore": "50.0",
+      "stroke": "57.9",
+      "val": "2",
+      "stdIn": 26,
+      "stdEx": 21,
+      "stdCr": "9.3"
+    },
+    {
+      "name": "Yamaha Mio M3 / Soul GT 125",
+      "bore": "52.4",
+      "stroke": "57.9",
+      "val": "2",
+      "stdIn": 25,
+      "stdEx": 22,
+      "stdCr": "9.5"
+    },
+    {
+      "name": "Honda BeAT FI / Scoopy FI (110)",
+      "bore": "50.0",
+      "stroke": "55.1",
+      "val": "2",
+      "stdIn": 25.5,
+      "stdEx": 21,
+      "stdCr": "9.5"
+    },
+    {
+      "name": "Honda BeAT eSP / Genio (New)",
+      "bore": "47.0",
+      "stroke": "63.1",
+      "val": "2",
+      "stdIn": 22,
+      "stdEx": 19,
+      "stdCr": "10.0"
+    },
+    {
+      "name": "Honda Tiger 2000 / Revo",
+      "bore": "63.5",
+      "stroke": "62.2",
+      "val": "2",
+      "stdIn": 31.5,
+      "stdEx": 27,
+      "stdCr": "9.0"
+    },
+    {
+      "name": "Honda Vario 125 eSP",
+      "bore": "52.4",
+      "stroke": "57.9",
+      "val": "2",
+      "stdIn": 25.5,
+      "stdEx": 21,
+      "stdCr": "11.0"
+    },
+    {
+      "name": "Honda Vario 150 eSP",
+      "bore": "57.3",
+      "stroke": "57.9",
+      "val": "2",
+      "stdIn": 24.5,
+      "stdEx": 20.5,
+      "stdCr": "10.6"
+    },
+    {
+      "name": "Honda PCX 150 / Vario 150 CBU",
+      "bore": "57.3",
+      "stroke": "57.9",
+      "val": "2",
+      "stdIn": 29,
+      "stdEx": 23,
+      "stdCr": "10.6"
+    },
+    {
+      "name": "Yamaha Jupiter Z (110)",
+      "bore": "51.0",
+      "stroke": "54.0",
+      "val": "2",
+      "stdIn": 23,
+      "stdEx": 20,
+      "stdCr": "9.0"
+    },
+    {
+      "name": "Yamaha Vega R New (110)",
+      "bore": "51.0",
+      "stroke": "54.0",
+      "val": "2",
+      "stdIn": 23,
+      "stdEx": 20,
+      "stdCr": "9.0"
+    },
+    {
+      "name": "Honda Supra X 125 / Karisma",
+      "bore": "52.4",
+      "stroke": "57.9",
+      "val": "2",
+      "stdIn": 25,
+      "stdEx": 22,
+      "stdCr": "9.0"
+    },
+    {
+      "name": "Yamaha NMAX 155 Old (4V)",
+      "bore": "58.0",
+      "stroke": "58.7",
+      "val": "4",
+      "stdIn": 19.5,
+      "stdEx": 17,
+      "stdCr": "10.5"
+    },
+    {
+      "name": "Yamaha New NMAX / Aerox 155",
+      "bore": "58.0",
+      "stroke": "58.7",
+      "val": "4",
+      "stdIn": 20.5,
+      "stdEx": 17.5,
+      "stdCr": "11.6"
+    },
+    {
+      "name": "Yamaha Jupiter MX 135 (4V)",
+      "bore": "54.0",
+      "stroke": "58.7",
+      "val": "4",
+      "stdIn": 19,
+      "stdEx": 17,
+      "stdCr": "10.9"
+    },
+    {
+      "name": "Yamaha Vixion / R15 Old (4V)",
+      "bore": "57.0",
+      "stroke": "58.7",
+      "val": "4",
+      "stdIn": 21,
+      "stdEx": 19,
+      "stdCr": "10.4"
+    },
+    {
+      "name": "Suzuki Satria FU 150 (Karbu)",
+      "bore": "62.0",
+      "stroke": "48.8",
+      "val": "4",
+      "stdIn": 22,
+      "stdEx": 19,
+      "stdCr": "10.2"
+    },
+    {
+      "name": "Suzuki Satria F150 FI",
+      "bore": "62.0",
+      "stroke": "48.8",
+      "val": "4",
+      "stdIn": 24,
+      "stdEx": 21,
+      "stdCr": "11.5"
+    },
+    {
+      "name": "Honda CB150R / CBR150R LED",
+      "bore": "57.3",
+      "stroke": "57.8",
+      "val": "4",
+      "stdIn": 22,
+      "stdEx": 19,
+      "stdCr": "11.3"
+    }
+  ],
+  "market": [
+    { "in": 19, "ex": 17 },
+    { "in": 20, "ex": 17 },
+    { "in": 22, "ex": 19 },
+    { "in": 23, "ex": 20 },
+    { "in": 24, "ex": 21 },
+    { "in": 25, "ex": 22 },
+    { "in": 26, "ex": 23 },
+    { "in": 28, "ex": 24 },
+    { "in": 30, "ex": 25 },
+    { "in": 31, "ex": 26 },
+    { "in": 33, "ex": 29 },
+    { "in": 34, "ex": 30 }
+  ]
+}

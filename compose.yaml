@@ -1,7 +1,9 @@
 services:
   app:
     image: ghcr.io/neflalabs/2mmauto:latest
+    build: .
     container_name: 2mmauto-app
     ports:
       - "8020:80"
     restart: unless-stopped
+

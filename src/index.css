@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -15,8 +16,6 @@
   --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.4);
   --shadow-red-glow: 0 0 20px rgba(227, 6, 19, 0.2);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
     --bg-main: #FFFFFF;
